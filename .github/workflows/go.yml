@@ -26,4 +26,9 @@ jobs:
         #    echo "K2=$(echo -n $KEY_RAW)" >> env.txt
         # echo "K3=$KEY_RAW" >> env.txt
         cat env.txt
-        docker run -i --env-file=env.txt alpine env
+        # docker run -i --env-file=env.txt alpine env
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: my-artifact
+        path:  env.txt
