@@ -22,6 +22,6 @@ jobs:
       run: |
         echo $KEY_RAW > env.txt
         echo "K2=$(echo $KEY_RAW)" >> env.txt
-        echo "K3=$KEY_RAW" >> env.txt
+        # echo "K3=$KEY_RAW" >> env.txt
         cat env.txt
         docker run -i --env-file=env.txt alpine env
