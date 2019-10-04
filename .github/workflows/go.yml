@@ -20,7 +20,8 @@ jobs:
       env:
         KEY_RAW: ${{ secrets.KEY_RAW }}
       run: |
-        # echo $KEY_RAW > env.txt
+        touch env.txt
+        # echo $KEY_RAW >> env.txt
         echo "K2=$(echo $KEY_RAW)" >> env.txt
         # echo "K3=$KEY_RAW" >> env.txt
         cat env.txt
