@@ -18,13 +18,11 @@ jobs:
 
     - name: Build
       env:
-        KEY_RAW: ${{ secrets.KEY_RAW }}
+        GOOGLE_APPLICATION_CREDENTIALS_RAW: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         TEST_CREDENTIALS: ${{ secrets.TEST_CREDENTIALS }}
       run: |
         echo -n "$TEST_CREDENTIALS" > env.txt
-        # echo $KEY_RAW >> env.txt
-        echo "K2=$(echo $KEY_RAW)" >> env.txt
-        # echo "K3=$KEY_RAW" >> env.txt
+        echo "GOOGLE_APPLICATION_CREDENTIALS=$(echo $GOOGLE_APPLICATION_CREDENTIALS_RAW)" >> env.txt
         cat env.txt
         docker run -i --env-file=env.txt alpine env
 
